@@ -32,13 +32,7 @@ h1 {
     margin-right: 20px;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    justify-items: center;
-}
+
 
 .card {
     position: relative;
@@ -76,19 +70,38 @@ h1 {
     border-radius: 10%;
 }
 
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+
+/* Media query para pantallas más pequeñas */
 @media screen and (max-width: 768px) {
+    body {
+        background-image: url(fondo.jpg);
+    }
     .container {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        padding: 10px;
+        justify-content: space-around;
+    }
+
+    .card {
+        width: calc(50% - 20px); /* n pantallas más pequeñas */
     }
 }
-#homeButton {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-}
-.card.selected {
-    border: 2px solid #007bff;
+
+/* Media query para pantallas aún más pequeñas */
+@media screen and (max-width: 480px) {
+    .card {
+        width: calc(100% - 20px); /* Esto hará que haya 1 tarjeta por fila en pantallas muy pequeñas */
+    }
+    body {
+        background-image: url(fondo.jpg);
+    }
 }
